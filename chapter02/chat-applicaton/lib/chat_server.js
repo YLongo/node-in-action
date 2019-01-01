@@ -18,5 +18,8 @@ exports.listen = function(server) {
 		guestNumber = assignGuestName(socket, guestNumber, nickNames, namesUsed);
 		// 在用户连接时，将他放入聊天室 Lobby 中
 		joinRoom(socket, "Lobby");
+		// 处理用户的相关信息
+		handleMessageBroadcasting(socket, nickNames);
+		
 	});
 }
