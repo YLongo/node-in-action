@@ -5,7 +5,7 @@ var io;
 
 var guestNumber = 1;
 var nickNames = {};
-var namesUsed = {};
+var namesUsed = [];
 var currentRoom = {};
 
 exports.listen = function(server) {
@@ -38,7 +38,7 @@ function assignGuestName(socket, guestNumber, nickNames, namesUsed) {
 	// 把用户昵称跟客户端连接id关联上
 	nickNames[socket.io] = name;
 	// 让用户知道他们的昵称
-	socket.emit("nameResult" {
+	socket.emit("nameResult", {
 		success: true,
 		name: name
 	});

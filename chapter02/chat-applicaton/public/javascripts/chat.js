@@ -28,14 +28,16 @@ Chat.prototype.processCommand = function(command) {
 
     var message = false;
 
+    console.log("command:" + command);
+
     switch (command) {
-        case: "join":
+        case "join":
             words.shift();
             var room = words.join(" ");
             // 处理房间的变更
             this.changeRoom(room);
             break;
-        case: "nick":
+        case "nick":
             words.shift();
             var name = words.join(" ");
             // 更换昵称
