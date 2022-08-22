@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style>
+        p.font-small {
+            font-size: 18px;
+        }
+
+        p.font-medium {
+            font-size: 24px;
+        }
+
+        p.font-big {
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+    <div id="id-div-class-p">
+        <p>this is a vue class test</p>
+        <p :class="{'font-big': pBigActive}">{{msg}}</p>
+        <p :class="{'font-medium': pMediumActive}">{{msg}}</p>
+        <p :class="{'font-small': pSmallActive}">{{msg}}</p>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#id-div-class-p',
+            data: {
+                msg: 'hello vue.js',
+                pSmallActive: true,
+                pMediumActive: false,
+                pBigActive: true
+            }
+        })
+    </script>
+</body>
+</html>

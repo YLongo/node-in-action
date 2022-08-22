@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+    <div id="id-div-derectives-for">
+        <template>
+            <button v-for='btn in btnarr' v-bind:id="genId(btn.id)">
+                {{btn.txt}}
+            </button>
+        </template>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#id-div-derectives-for',
+            data: {
+                btnarr: [{
+                    id: 1,
+                    txt: 'javascript'
+                }, {
+                    id: 2,
+                    txt: 'vue.js'
+                }, {
+                    id: 3,
+                    txt: 'vue-cli'
+                }, {
+                    id: 4,
+                    txt: 'vue-router'
+                }, {
+                    id: 5,
+                    txt: 'vuex'
+                }]
+            },
+            methods: {
+                genId: function(index) {
+                    return 'id-btn-' + index;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

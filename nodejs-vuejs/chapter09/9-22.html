@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="id-div-derectives-model-msg">
+        <p>test v-model derectives</p>
+        <p>please enter
+            <input type="text"
+                @input="msg=$event.target.value"
+                :value="msg"
+                placeholder="pls enter ..." />
+        </p>
+        <p>please enter
+            <input 
+                type="text"
+                @input="input_msg($event)"
+                :value="msg"
+                placeholder="pls enter ..." />
+        </p>   
+        <p>your enter message: {{msg}}</p>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#id-div-derectives-model-msg',
+            data: {
+                msg: ""
+            },
+            methods: {
+                input_msg: function(ev) {
+                    this.msg = ev.target.value;
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

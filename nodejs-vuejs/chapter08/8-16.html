@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+    
+    <div id="id-div-sum">
+        expression : {{a}} + {{b}} = {{sum}}
+    </div>
+
+    <div>
+        click start watch to start watch sum:
+        <input type="button" id="id-btn-start-watch" value="start watch" onclick="onBtnStartWatch(this.id)" />
+
+        click cancel watch to stop watch:
+        <input type="button" id="id-btn-cancel-watch" value="cancel watch" onclick="onBtnCancelWatch(this.id)" />
+
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#id-div-sum',
+            data: {
+                a: 1,
+                b: 1,
+                sum: 2
+            }
+        });
+
+        var unwatch = vm.$watch(function() {
+            return this.a + this.b;
+        }, function(newVal, oldVal) {
+            console.log('sum from ' + oldVal + " turns to " + newVal);
+        });
+
+        function onBtnStartWatch(thisid) {
+            vm.$data.a = Math.round(Math.random() * 100);
+            console.log('a = ' + vm.$data.a);
+
+            vm.$data.b = Math.round(Math.random() * 100);
+            console.log('b = ' + vm.$data.b);
+
+            vm.$data.sum = vm.$data.a + vm.$data.b;
+            console.log('sum = ' + vm.$data.sum);
+        }
+
+        function onBtnCancelWatch(thisid) {
+            unwatch();
+        }
+    </script>
+
+</body>
+</html>

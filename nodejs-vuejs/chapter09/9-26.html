@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="id-div-computed-msg">
+        <p>this is a vue computed test</p>
+        <p>original message: {{msg}} </p>
+        <p>reverse message:
+            {{msg.split('').reverse().join('')}}
+        </p>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#id-div-computed-msg',
+            data: {
+                msg: 'hello vue.js'
+            }
+        })
+    </script>
+</body>
+</html>

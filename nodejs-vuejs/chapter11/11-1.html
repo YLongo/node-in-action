@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    
+    <div id="id-div-comp">
+        <comp-title></comp-title>
+        <comp-content></comp-content>
+        <comp-counter></comp-counter>
+    </div>
+
+    <script>
+        Vue.component('comp-title', {
+            template: '<h3>title -vue.js global component</h3>'
+        });
+
+        Vue.component('comp-content', {
+            template: '<p>this is a vue.js comp-content</p>'
+        });
+
+        Vue.component('comp-counter', {
+            data: function() {
+                return {
+                    count: 0
+                }
+            },
+            template: '<button v-on:click="count++" >' + 
+                        'you clicked me {{count}} times ' +
+                      '</button>'
+        });
+
+        var vm = new Vue({
+            el: '#id-div-comp'
+        })
+    </script>
+</body>
+</html>

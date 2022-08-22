@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    
+    <div id="id-div-derectives-stop">
+        <div id="outter" v-on:click="clk_outter">
+            {{outtertxt}}
+            <div 
+                id="inner"
+                v-on:click="clk_inner"
+                v-on:click.stop="clk_stop_inner">
+                {{innertxt}}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#id-div-derectives-stop',
+            data: {
+                outtertxt: 'javascript',
+                innertxt: 'vue.js'
+            },
+            methods: {
+                clk_outter: function() {
+                    console.log('clicked outter div');
+                },
+
+                clk_inner: function() {
+                    console.log('clicked inner div');
+                },
+
+                clk_stop_inner: function() {
+                    console.log('stoped inner div click event');
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div class="text-wrapper" id="id-div-vue-lifecycle" v-html="msg">
+        {{msg}}
+    </div>
+
+    <div>
+        lifecycle hook:
+        <button id="id-btn-hook-update" onclick="onBtnHookUpdate(this.id)">
+            hook update
+        </button>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#id-div-vue-lifecycle',
+            data: {
+                msg: ''
+            },
+            beforeUpdate: function() {
+                this.$data.msg += 'beforeUpdate' + '<br/>';
+                console.log('lifecycle hook --- beforeupdate');
+                this.$data.msg += 'updated' + '<br/>';
+            },
+            updated: function() {
+                console.log('lifecycle hook --- updated');
+            }
+        });
+
+        function onBtnHookUpdate(thisid) {
+            vm.$data.msg += 'manual to update' + '<br/>';
+        }
+
+    </script>
+
+</body>
+</html>

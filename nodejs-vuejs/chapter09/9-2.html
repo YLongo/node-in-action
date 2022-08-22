@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    
+    <div id="id-div-templ-html">
+        <table>
+            <caption>原始html插值</caption>
+            <tr>
+                <th>msg</th>
+                <td>{{msg}}</td>
+            </tr>
+            <tr>
+                <th>msg html</th>
+                <td v-html="msghtml"></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#id-div-templ-html',
+            data: {
+                msg: 'king is a leader <br> he is a good leader',
+                msghtml: 'king is a leader <br> he is a good leader'
+            }
+        });
+    </script>
+</body>
+</html>

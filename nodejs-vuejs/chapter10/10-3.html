@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style>
+        p {
+            font-size: 16px;
+        }
+
+        p.font-big {
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+    <div id="id-div-class-p">
+        <p>this is a vue class test</p>
+        <p :class="{'font-big': pBigActive}">{{msg}}</p>
+        <button @click="event_click_font">toggle class font</button>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#id-div-class-p',
+            data: {
+                msg: 'hello vue.js',
+                pBigActive: false
+            },
+            methods: {
+                event_click_font: function() {
+                    if (this.pBigActive) {
+                        this.pBigActive = false;
+                    } else {
+                        this.pBigActive = true;
+                    }
+                    console.log(this.pBigActive);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

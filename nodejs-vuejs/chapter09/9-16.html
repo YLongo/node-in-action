@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="id-div-derectives-prevent">
+        <form 
+            v-on:submit.prevent="submit_prevent"
+            action="server.php" method="get">
+
+            <p>which language do you like, javascript or vue.js</p>
+            <p>
+                i like
+                <input type="text" name="language" v-bind:value="language" />
+            </p>
+            <input type="submit" value="submit" />
+        </form>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#id-div-derectives-prevent',
+            data: {
+                language: 'vue.js'
+            },
+            methods: {
+                submit_prevent: function() {
+                    console.log('submit is prevented by modifier .prevent');
+                }
+            }
+        })
+    </script>
+</body>
+</html>

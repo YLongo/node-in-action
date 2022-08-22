@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3"></script>
+</head>
+<body>
+    
+    <div id="id-div-vue-router">
+        <p>
+            <router-link to="/home" active-class="active">home</router-link>
+            <router-link to="/user/king" active-class="active">king</router-link>
+            <router-link to="/user/tina" active-class="active">tina</router-link>
+            <router-link to="/user/cici" active-class="active">cici</router-link>
+        </p>
+        <router-view></router-view>
+    </div>
+
+    <script>
+        const home = {
+            template: '<div>this is home page</div>'
+        };
+
+        const user = {
+            template: '<div>this is {{$route.params.name}} </div>'
+        };
+
+        const routes = [
+            {
+                path: '/home',
+                component: home
+            },
+            {
+                path: '/user/:name',
+                component: user
+            },
+            {
+                path: '*',
+                redirct: '/home'
+            }
+        ];
+
+        const router = new VueRouter({
+            routes: routes
+        });
+
+        const app = new Vue({
+            router
+        }).$mount('#id-div-vue-router');
+    </script>
+</body>
+</html>

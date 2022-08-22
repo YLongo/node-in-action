@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    
+    <div id="id-div-comp-reverse">
+        enter: <input v-model="instr" />
+        <reverse-string v-bind:msg="instr"></reverse-string>
+    </div>
+
+    <script>
+        Vue.component('reverse-string', {
+            props: ['msg'],
+            computed: {
+                revstr: function() {
+                    return this.msg.split('').reverse().join('');
+                }
+            },
+            template: '<p>reverse string: {{ revstr }}</p>'
+        });
+
+        var vm = new Vue({
+            el: '#id-div-comp-reverse',
+            data: {
+                instr: 'pls enter string to reverse ...'
+            }
+        });
+    </script>
+</body>
+</html>

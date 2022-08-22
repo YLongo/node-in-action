@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="id-div-derectives-model-trim">
+        <p>test v-model derectives</p>
+        <p>
+            please enter
+            <input 
+                type="text" 
+                v-model.trim="trim"
+                @input="input_trim"
+                placeholder="pls enter ..."/>
+        </p>
+        <p>your enter: {{trim}} </p>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#id-div-derectives-model-trim',
+            data: {
+                trim: null
+            },
+            methods: {
+                input_trim: function() {
+                    console.log('input event: ' + this.trim);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

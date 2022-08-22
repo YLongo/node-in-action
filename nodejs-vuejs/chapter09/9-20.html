@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="id-div-derectives-bind-click">
+        <p>which language do you like, javascript or vue.js</p>
+        <p>
+            <button v-on:click="clk_event_js">javascript</button>
+            <button @click="clk_event_vue">vue.js</button>
+        </p>
+        <p>i like <a :href="url"> {{language}} </a></p>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#id-div-derectives-bind-click',
+            data: {
+                url: "",
+                language: ""
+            },
+            methods: {
+                clk_event_js: function() {
+                    console.log('javascript button clicked');
+                    this.url = 'https://www.javascript.com/';
+                    this.language = 'javascript'
+                },
+
+                clk_event_vue: function() {
+                    console.log('vue button clicked');
+                    this.url = 'https://cn.vuejs.org';
+                    this.language = "vue.js";
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+    <div id="id-div-derectives-templ">
+        <p>login region</p>
+        <template v-if="logintype">
+            <p><label>username:</label></p>            
+        </template>
+        <template v-else>
+            <p><label>email:</label></p>
+        </template>
+
+        <p>
+            <button id="id-btn-logintype" onclick="on_btn_logintype(this.id)">
+                change login type
+            </button>
+        </p>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#id-div-derectives-templ',
+            data: {
+                logintype: true
+            }
+        })
+
+        function on_btn_logintype(thisid) {
+            vm.$data.logintype = !vm.$data.logintype;
+        }
+    </script>
+</body>
+</html>

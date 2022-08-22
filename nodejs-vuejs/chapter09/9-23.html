@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="id-div-derectives-model-lazy-msg">
+        <p>test v-model derectives</p>
+        <p>please inter
+            <input 
+                type="text"
+                v-model.lazy="msg"
+                @input="input_event"
+                @change="change_event"
+                placeholder="pls enter ..."/>
+        </p>
+        <p>your enter message: {{msg}} </p>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: "#id-div-derectives-model-lazy-msg",
+            data: {
+                msg: ""
+            },
+            methods: {
+                input_event: function() {
+                    console.log('input event: ' + this.msg);
+                },
+                change_event: function() {
+                    console.log('change event: ' + this.msg);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

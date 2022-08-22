@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="id-div-derectives-bind-input">
+        <p>which language do you like, javascript or vue.js</p>
+        <p>
+            i like
+            <input type="text" v-on:[type?focus:change]="event" value="vue.js" />
+        </p>
+        <button v-on:click="type=true">event:focus</button>
+        <button v-on:click="type=false">event:change</button>
+
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#id-div-derectives-bind-input',
+            data: {
+                type: null,
+                focus: 'focus',
+                change: 'change'
+            },
+            methods: {
+                event: function() {
+                    console.log('emit ' + (this.type ? 'focus' : 'change') + ' event');
+                }
+            }
+        })
+    </script>
+</body>
+</html>

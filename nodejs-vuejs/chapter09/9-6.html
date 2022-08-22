@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    
+    <div id="id-div-derectives-if">
+        <p>which language do you like javascript, vue.js or both of them?</p>
+        <p>i like
+            <b v-if="type == 'J'">javascript</b>
+            <b v-else-if="type == 'V'">vue.js</b>
+            <b v-else-if="type == 'A'">both javascript and vue.js</b>
+            <b v-else>none</b>
+        </p>
+    </div>
+
+    <script>
+
+        var vm = new Vue({
+            el: "#id-div-derectives-if",
+            data: {
+                type: 'A'
+            }
+        });
+    </script>
+
+</body>
+</html>

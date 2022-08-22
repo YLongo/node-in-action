@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div class="text-wrapper" id="id-div-vue-lifecycle" v-html="msg">
+        {{msg}}
+    </div>
+
+    <div>
+        lifecycle hook:
+        <button id="id-btn-hook-destory" onclick="onBtnHookDestory(this.id)">
+            hook destory
+        </button>
+
+        <button id="id-btn-hook-destory2" onclick="onBtnHookDestory2(this.id)">
+            hook destory again
+        </button>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#id-div-vue-lifecycle',
+            data: {
+                msg: ''
+            },
+            beforeDestroy: function() {
+                console.log('lifecycle hook --- before destory');
+                console.log(this.$el);
+                console.log(this.$data);
+            },
+            errorCapture: function() {
+                
+            }
+        });
+
+        function onBtnHookDestory(thisid) {
+            console.log('manual destory');
+            vm.$destroy();
+        }
+
+        function onBtnHookDestory2(thisid) {
+            console.log('manual destory again');
+            vm.$destroy();
+        }
+
+    </script>
+</body>
+</html>

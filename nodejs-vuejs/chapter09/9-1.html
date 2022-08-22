@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="id-div-templ-text">
+        <table>
+            <caption></caption>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>age</th>
+            </tr>
+            <tr>
+                <td>{{id}}</td>
+                <td>{{name}}</td>
+                <td>{{age}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#id-div-templ-text',
+            data: {
+                id: 1,
+                name: 'king',
+                age: '26'
+            }
+        });
+    </script>
+</body>
+</html>

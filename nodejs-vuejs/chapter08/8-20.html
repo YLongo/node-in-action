@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    
+    <div class="test-wrapper" id="id-div-vue-lifecycle" v-html="msg">
+        {{msg}}
+    </div>
+
+    <script>
+
+        var vm = new Vue({
+            el: '#id-div-vue-lifecycle',
+            data: {
+                msg: ''
+            },
+            beforeCreate: function() {
+                console.log('lifecycle hook === beforeCreate');
+                console.log('$el: ' + this.$el);
+                console.log('$data: ' + this.$data);
+            },
+            created: function() {
+                this.$data.msg += 'created' + "<br/>";
+                console.log('lifecycle hook === created');
+                console.log('$el: ' + this.$el);
+                console.log('$data: ' + this.$data);
+            }
+        });
+
+
+
+    </script>
+</body>
+</html>

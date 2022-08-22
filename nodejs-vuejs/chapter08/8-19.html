@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    
+    <div id="id-div-event-once">
+        {{msg}}
+    </div>
+
+    <div>
+        test event once:
+        <button id="id-btn-event-once" onclick="onBtnTestOnce(this.id)">
+        test once
+        </button>
+    </div>
+
+    <script>
+
+        var _times = 0;
+
+        var vm = new Vue({
+            el: '#id-div-event-once',
+            data: {
+                msg: 'vm.$once() ' + _times++ + ' times'
+            }
+        });
+
+        vm.$once('test', function(msg) {
+            console.log(msg);
+            vm.$data.msg = msg;
+        });
+
+        function onBtnTestOnce(thisid) {
+            console.log('click button ' + _times + ' times');
+            let i_msg = 'vm.$once() ' + _times++ + ' times';
+            vm.$emit('test', i_msg.toString());
+        }
+
+    </script>
+
+</body>
+</html>

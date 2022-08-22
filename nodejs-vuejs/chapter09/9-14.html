@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="id-div-derectives-bind-input">
+        <p>which language do you like, javascript or vue</p>
+        <p>
+            i like 
+            <input 
+                v-bind:[attr.type.name]="attr.type.val"
+                v-bind:value="attr.value"
+            />
+        </p>
+        <p>
+            <button v-on:click="event(true)">
+                type:text
+            </button>
+            <button v-on:click="event(false)">
+                type:button
+            </button>
+        </p>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#id-div-derectives-bind-input',
+            data: {
+                attr: {
+                    type: {
+                        name: 'type',
+                        val: 'text'
+                    },
+                    value: 'vue.js'
+                }
+            },
+            methods: {
+                event: function(b) {
+                    if (b) {
+                        this.attr.type.name = 'type';
+                        this.attr.type.val = 'text';
+                        this.attr.value = 'vue.js';
+                    } else {
+                        this.attr.type.name = 'type';
+                        this.attr.type.val = 'button';
+                        this.attr.value = 'vue button'
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

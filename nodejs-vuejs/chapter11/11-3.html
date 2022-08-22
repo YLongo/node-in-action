@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<style>
+    p.p-right {
+        text-align: right;
+    }
+</style>
+<body>
+    <div id="id-div-comp-news">
+        <news-title title="news title"></news-title>
+        <news-content content="hello, vue.js"></news-content>
+        <news-author author="king"></news-author>
+    </div>
+
+    <script>
+        Vue.component('news-title', {
+            props: ['title'],
+            template: '<h3>{{ title }}</h3'
+        });
+
+        Vue.component('news-content', {
+            props: ['content'],
+            template: '<p>this is news content : {{ content }}</p>'
+        })
+
+        Vue.component('news-author', {
+            props: ['author'],
+            template: '<p class="p-right">edit by {{ author }}</p>'
+        })
+
+        var vm = new Vue({
+            el: '#id-div-comp-news'
+        })
+    </script>
+</body>
+</html>

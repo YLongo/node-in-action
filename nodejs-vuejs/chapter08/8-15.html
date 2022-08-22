@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="id-div-counter">
+        current counter is <b>{{ counter }}</b>
+    </div>
+
+    <div>
+        click "start watch" to start watch & add counter:
+        <input type="button" id="id-btn-watch" value="start watch" onclick="onBtnStartWatch(this.id)" />
+
+        click 'cancel watch' to stop watch:
+
+        <input type="button" id="id-btn-cancel-watch" value="cancel watch" onclick="onBtnCancelWatch(this.id)" />
+
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#id-div-counter',
+            data: {
+                counter: 1
+            }
+        });
+
+        var unwatch = vm.$watch('counter', function(newVal, oldVal) {
+            console.log('counter from ' + oldVal + " turns to " + newVal);
+        });
+
+        function onBtnStartWatch(thisid) {
+            vm.$data.counter += 1;
+            console.log('counter = ' + vm.$data.counter);
+        }
+
+        function onBtnCancelWatch(thisid) {
+            unwatch();
+        }
+
+    </script>
+
+</body>
+</html>

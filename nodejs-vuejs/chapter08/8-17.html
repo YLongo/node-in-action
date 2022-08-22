@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    
+    <div id="id-div-vue-emit">
+        <welbutton v-on:evhello="sayHello"></welbutton>
+    </div>
+
+    <script>
+        Vue.component('welbutton', {
+            template: `<button v-on:click="$emit('evhello')">
+                click me to say hello
+                </button>`
+        });
+
+        var vm = new Vue({
+            el: '#id-div-vue-emit',
+            methods: {
+                sayHello: function() {
+                    console.log('hello vue --- vm.$emit');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

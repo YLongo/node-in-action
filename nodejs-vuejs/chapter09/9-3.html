@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    
+    <div id="id-div-templ-js">
+        <table>
+            <caption>javascript表达式</caption>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>gender</th>
+            </tr>
+            <tr>
+                <td>{{id + 1}}</td>
+                <td>{{name.toLowerCase()}}</td>
+                <td>{{gender ? 'male' : 'female'}}</td>
+            </tr>
+            <tr>
+                <td>{{id * id}}</td>
+                <td>{{name.toLowerCase()}}</td>
+                <td>{{gender ? 'female' : 'male'}}</td>
+            </tr>
+            <tr>
+                <td>{{Math.round(Math.random() * 100)}}</td>
+                <td>{{name.split('').reverse().join('')}}</td>
+                <td>{{(new Date()).getYear() + 1900}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#id-div-templ-js',
+            data: {
+                id: 1,
+                name: 'king',
+                gender: true
+            }
+        })
+    </script>
+</body>
+</html>

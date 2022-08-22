@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    
+    <div id="id-div-derectives-show">
+        <p>which language do you like, javascript or vue.js</p>
+        <p>
+            i like
+            <b v-show="noshow">javascript</b>
+            <b v-show="show">vue.js</b>
+        </p>
+        <p>
+            i like
+            <b v-if="js">javascript</b>
+            <b v-if="vue">vue.js</b>
+        </p>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: "#id-div-derectives-show",
+            data: {
+                noshow: false,
+                show: true,
+                js: true,
+                vue: false
+            }
+        });
+    </script>
+</body>
+</html>

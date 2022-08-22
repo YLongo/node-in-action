@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style>
+        p.font-medium {
+            font-size: 32px;
+        }
+
+        p.font-weight {
+            font-weight: bold;
+        }
+
+        p.font-italic {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="id-div-class-p">
+        <p>this is a vue class test</p>
+        <p :class="myfontcomputed1">
+            {{msg}}
+        </p>
+
+        <p :class="myfontcomputed2">
+            {{msg}}
+        </p>
+
+        <p :class="myfontcomputed3">
+            {{msg}}
+        </p>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#id-div-class-p',
+            data: {
+                msg: 'hello vue.js'
+            },
+            computed: {
+                myfontcomputed1: function() {
+                    return {
+                        'font-medium': true,
+                        'font-weight': true,
+                        'font-italic': true
+                    }
+                },
+                myfontcomputed2: function() {
+                    return {
+                        'font-medium': true,
+                        'font-weight': false,
+                        'font-italic': false
+                    }
+                },
+                myfontcomputed3: function() {
+                    return {
+                        'font-medium': false,
+                        'font-weight': false,
+                        'font-italic': false
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

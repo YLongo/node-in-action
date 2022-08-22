@@ -1,0 +1,28 @@
+{
+  "name": "nodejs-vuejs",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "dev": "webpack-dev-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@vue/cli": "^5.0.8",
+    "@vue/cli-service-global": "^4.5.19",
+    "csv": "^6.2.0",
+    "lodash": "^4.17.15",
+    "mongoose": "^6.5.2",
+    "mysql": "^2.18.1",
+    "vue-router": "^4.1.3"
+  }
+}
